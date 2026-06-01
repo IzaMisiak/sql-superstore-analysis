@@ -20,12 +20,13 @@ FROM orders
 SELECT
 	p.product_id
 	,p.product_name
+	,p.category
 	,SUM(oi.profit) AS total_profit
 FROM products p
 JOIN order_items oi 
 	ON p.product_id = oi.product_id
-GROUP BY 1,2
-ORDER BY 3 DESC
+GROUP BY 1,2,3
+ORDER BY 4 DESC
 LIMIT 5
 ;
 
@@ -43,7 +44,7 @@ HAVING SUM(oi.profit) < 0
 ORDER BY 3
 ;
 
--- What are the total sales by subcategories?
+-- What are the total sales by subcategory?
 
 SELECT
 	p.sub_category
@@ -150,7 +151,7 @@ FROM customer_sales
 ;
 
 -- RETURN ANALYSIS
--- Which products have the highest return rate?
+-- Which products have the highest return rate relative to the total orders placed?
 
 SELECT
     oi.product_id
@@ -160,7 +161,7 @@ FROM order_items oi
 LEFT JOIN returns r
     ON oi.order_id = r.order_id
 GROUP BY oi.product_id
-ORDER BY 3 DESC
+ORDER BY 2 DESC
 ;
 
 -- Which customers have never returned any order?
