@@ -1,6 +1,6 @@
 **Project Overview**
 
-This project is an SQL-based analysis of the Superstore dataset, a fictional retail company selling office supplies, furniture, and technology products.
+This project is a MySQL-based analysis of the Superstore dataset, a fictional retail company selling office supplies, furniture, and technology products.
 The goal of this project is to explore key business areas such as sales performance, customer behavior, product profitability, returns, and shipping efficiency.
 
 **Objectives**
